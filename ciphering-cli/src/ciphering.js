@@ -1,4 +1,4 @@
-export const encodingCaesar = (string) => {
+const encodingCaesar = (string) => {
   const arr = string.split('');
   const result = arr.map(elem => {
     const charCode = elem.charCodeAt(0);
@@ -16,7 +16,7 @@ export const encodingCaesar = (string) => {
   return result.join('');
 };
 
-export const decodingCaesar = (string) => {
+const decodingCaesar = (string) => {
   const arr = string.split('');
   const result = arr.map(elem => {
     const charCode = elem.charCodeAt(0);
@@ -34,7 +34,7 @@ export const decodingCaesar = (string) => {
   return result.join('');
 };
 
-export const encodingROT8 = (string) => {
+const encodingROT8 = (string) => {
   const arr = string.split('');
   const result = arr.map(elem => {
     const charCode = elem.charCodeAt(0);
@@ -52,7 +52,7 @@ export const encodingROT8 = (string) => {
   return result.join('');
 };
 
-export const decodingROT8 = (string) => {
+const decodingROT8 = (string) => {
   const arr = string.split('');
   const result = arr.map(elem => {
     const charCode = elem.charCodeAt(0);
@@ -70,7 +70,7 @@ export const decodingROT8 = (string) => {
   return result.join('');
 };
 
-export const atbash = (string) => {
+const atbash = (string) => {
   const arr = string.split('');
   const result = arr.map(elem => {
     const charCode = elem.charCodeAt(0);
@@ -92,3 +92,27 @@ export const atbash = (string) => {
 
   return result.join('');
 };
+
+export const cipher = (code, phrase) => {
+  code.forEach(item => {
+    switch(item) {
+      case 'C1':
+        phrase = encodingCaesar(phrase);
+        break;
+      case 'C0':
+        phrase = decodingCaesar(phrase);
+        break;
+      case 'R1':
+        phrase = encodingROT8(phrase);
+        break;
+      case 'R0':
+        phrase = decodingROT8(phrase);
+        break;
+      case 'A':
+        phrase = atbash(phrase);
+        break;
+    }
+  })
+
+  return phrase;
+}
