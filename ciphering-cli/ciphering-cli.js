@@ -93,7 +93,7 @@ pipeline(
   writeStream,
   (err) => {
     if(err) {
-      console.error(err.errno);
+      console.error(err);
     }
   }
 )
