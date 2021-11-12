@@ -13,7 +13,7 @@ export default class AtbashTransformStream extends Transform {
 
     if(this.flag.length > 1) {
       process.stderr.write('Invalid key for encoding/decoding');
-      process.exit();
+      process.exit(128);
     }
 
     const cipherPrase = cipher(this.flag, phrase);

@@ -48,7 +48,7 @@ if(outputFlagIndex !== -1) {
     process.exit();
   }
 
-  writeStream = fs.createWriteStream(`./${outputFile}`);
+  writeStream = fs.createWriteStream(`./${outputFileName}`);
 } else {
   writeStream = process.stdout;
 }

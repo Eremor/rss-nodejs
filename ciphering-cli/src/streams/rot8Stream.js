@@ -13,7 +13,7 @@ export default class ROT8TransformStream extends Transform {
 
     if(this.flag[1] != 0 && this.flag[1] != 1) {
       process.stderr.write('Invalid key for encoding/decoding');
-      process.exit();
+      process.exit(128);
     }
 
     const cipherPrase = cipher(this.flag, phrase);
