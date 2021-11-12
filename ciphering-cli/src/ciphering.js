@@ -93,26 +93,24 @@ const atbash = (string) => {
   return result.join('');
 };
 
-export const cipher = (code, phrase) => {
-  code.forEach(item => {
-    switch(item) {
-      case 'C1':
-        phrase = encodingCaesar(phrase);
-        break;
-      case 'C0':
-        phrase = decodingCaesar(phrase);
-        break;
-      case 'R1':
-        phrase = encodingROT8(phrase);
-        break;
-      case 'R0':
-        phrase = decodingROT8(phrase);
-        break;
-      case 'A':
-        phrase = atbash(phrase);
-        break;
-    }
-  })
+export const cipher = (flag, phrase) => {
+  switch(flag) {
+    case 'C1':
+      phrase = encodingCaesar(phrase);
+      break;
+    case 'C0':
+      phrase = decodingCaesar(phrase);
+      break;
+    case 'R1':
+      phrase = encodingROT8(phrase);
+      break;
+    case 'R0':
+      phrase = decodingROT8(phrase);
+      break;
+    case 'A':
+      phrase = atbash(phrase);
+      break;
+  }
 
   return phrase;
 }
